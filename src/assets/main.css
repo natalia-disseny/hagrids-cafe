@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+@font-face {
+  font-family: 'BurningSun';
+  src: url('fonts/BurningSunDemoItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@theme {
+  --color-hagrids-green: #0f5a45;
+  --color-hagrids-green-light: #377664;
+  --color-hagrids-green-dark: #0d4b3a;
+
+  --color-hagrids-pink-50: #f8eaee;
+  --color-hagrids-pink-100: #f1d5dd;
+  --color-hagrids-pink-200: #eac0cd;
+  --color-hagrids-pink-300: #e2aabc;
+  --color-hagrids-pink-400: #db95ab;
+  --color-hagrids-pink-500: #d4809a;
+  --color-hagrids-pink-600: #b16b80;
+  --color-hagrids-pink-700: #8d5567;
+  --color-hagrids-pink-800: #6a404d;
+  --color-hagrids-pink-900: #472b33;
+  --color-hagrids-pink-950: #23151a;
+}
