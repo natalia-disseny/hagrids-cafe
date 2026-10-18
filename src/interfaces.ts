@@ -8,3 +8,11 @@ export interface Game {
   averageRating: number
   wishlist: boolean
 }
+
+export interface Special {
+  id: number
+  name: string
+  ingredients: string[]
+  price: number
+  imageUrl: string
+}

@@ -1,4 +1,4 @@
-const API_URL = 'https://hagrids-back.onrender.com'
+import { API_URL } from '@/config'
 
 export async function getComments(gameId: number) {
   const response = await fetch(`${API_URL}/games/${gameId}/comments`)

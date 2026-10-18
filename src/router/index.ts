@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import GamesView from '@/views/GamesView.vue'
+import AdminView from '@/views/AdminView.vue'
+import SpecialsView from '@/views/SpecialsView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -9,6 +11,14 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/admin',
+      component: AdminView,
+    },
+    {
+      path: '/especials',
+      component: SpecialsView,
     },
     {
       path: '/jocs-de-taula',
