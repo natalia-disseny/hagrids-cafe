@@ -12,16 +12,18 @@ const { error, password, loggedIn, handleLogin } = useAuth()
   <template v-else>
     <h1 class="text-xl font-bold mb-4">Admin</h1>
 
-    <input
-      v-model="password"
-      type="password"
-      placeholder="Password"
-      class="w-full border rounded-lg p-3"
-    />
+    <form @submit="handleLogin">
+      <input
+        v-model="password"
+        type="password"
+        placeholder="Password"
+        class="w-full border rounded-lg p-3"
+      />
 
-    <button @click="handleLogin" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-3">
-      Login
-    </button>
+      <button type="submit" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-3">
+        Login
+      </button>
+    </form>
 
     <p v-if="error" class="mt-2 text-red-500">
       {{ error }}
