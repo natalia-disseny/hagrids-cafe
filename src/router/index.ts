@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import GamesView from '@/views/GamesView.vue'
 import AdminView from '@/views/AdminView.vue'
 import SpecialsView from '@/views/SpecialsView.vue'
+import SpecialsCreateView from '@/views/SpecialsCreateView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -17,8 +18,12 @@ const router = createRouter({
       component: AdminView,
     },
     {
-      path: '/especials',
+      path: '/specials',
       component: SpecialsView,
+    },
+    {
+      path: '/specials/create',
+      component: SpecialsCreateView,
     },
     {
       path: '/jocs-de-taula',

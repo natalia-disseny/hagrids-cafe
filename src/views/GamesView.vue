@@ -2,8 +2,10 @@
 import { onMounted } from 'vue'
 import { useGames } from '@/composables/useGames.use'
 import GameCard from '@/components/GameCard.vue'
+import Loader from '@/components/Loader.vue'
 
-const { filteredGames, playerCount, playerOptions, playTimeFilter, search, loadGames } = useGames()
+const { filteredGames, loading, playerCount, playerOptions, playTimeFilter, search, loadGames } =
+  useGames()
 
 onMounted(() => {
   loadGames()
@@ -66,6 +68,8 @@ onMounted(() => {
       </select>
     </div>
   </div>
+
+  <Loader v-if="loading" />
 
   <div class="grid gap-y-8 md:grid-cols-2 xl:grid-cols-3 mt-10">
     <div class="text-sm text-stone-500">{{ filteredGames.length }} jocs trobats</div>

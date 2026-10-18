@@ -21,6 +21,7 @@ export function useSpecials() {
   }
 
   return {
+    loading,
     specials,
     loadSpecials,
   }
