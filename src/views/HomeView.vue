@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import ButtonDefault from '@/components/ButtonDefault.vue'
+</script>
+
 <template>
   <div class="mt-10 flex flex-col gap-4">
     <!-- <RouterLink
@@ -7,12 +11,7 @@
       🎲 Jocs de taula
     </RouterLink> -->
 
-    <RouterLink
-      to="/specials"
-      class="rounded-xl bg-hagrids-green text-white py-4 text-center font-semibold hover:bg-hagrids-green-lighter transition"
-    >
-      Especials
-    </RouterLink>
+    <ButtonDefault :to="'/specials'">Especials de la setmana</ButtonDefault>
 
     <a
       href="https://www.instagram.com/hagridscafe/?hl=en"

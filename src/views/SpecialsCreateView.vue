@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { createSpecial } from '@/services/specials.service'
 import router from '@/router'
 import AdminLayout from '@/templates/AdminLayout.vue'
+import ButtonDefault from '@/components/ButtonDefault.vue'
 
 const name = ref('')
 const ingredients = ref('')
@@ -44,7 +45,7 @@ async function saveSpecial() {
 
       <input v-model="imageUrl" placeholder="URL de la imatge" class="border rounded-lg p-3" />
 
-      <button class="rounded-lg bg-indigo-600 text-white py-3">Guardar</button>
+      <ButtonDefault>Guardar</ButtonDefault>
     </form>
   </AdminLayout>
 </template>

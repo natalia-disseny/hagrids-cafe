@@ -16,10 +16,13 @@ import { RouterView } from 'vue-router'
 
         <div class="text-center">
           <RouterLink to="/">
-            <h1 class="text-hagrids-green font-[BurningSun] text-5xl">Hagrids Cafe</h1>
+            <h1 class="text-hagrids-green font-[BurningSun] text-5xl">Hagrid&nbsp;s Cafe</h1>
           </RouterLink>
 
-          <p class="text-center text-hagrids-pink-500">Board games, events and fun</p>
+          <p class="text-center text-hagrids-pink-500">
+            Menjar casolà americà, cafè especialitat<br />
+            i jocs de taula
+          </p>
         </div>
       </div>
 
@@ -27,3 +30,18 @@ import { RouterView } from 'vue-router'
     </div>
   </div>
 </template>
+
+<style>
+h1 {
+  position: relative;
+  &::before {
+    content: "'";
+    display: block;
+    position: absolute;
+    left: 47%;
+    rotate: 26deg;
+    top: -10%;
+    font-family: cursive;
+  }
+}
+</style>

@@ -1,0 +1,17 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
+defineProps<{
+  to?: string
+}>()
+</script>
+
+<template>
+  <component
+    :is="to ? RouterLink : 'button'"
+    :to="to"
+    class="rounded-xl bg-hagrids-green text-white py-4 text-center font-semibold hover:bg-hagrids-green-lighter transition cursor-pointer"
+  >
+    <slot />
+  </component>
+</template>
