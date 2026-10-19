@@ -11,7 +11,7 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
       🎲 Jocs de taula
     </RouterLink> -->
 
-    <ButtonDefault :to="'/specials'">Especials de la setmana</ButtonDefault>
+    <ButtonDefault :to="'/specials'">🥞 Especials de la setmana</ButtonDefault>
 
     <a
       href="https://www.instagram.com/hagridscafe/?hl=en"

@@ -7,11 +7,14 @@ import AdminLayout from '@/templates/AdminLayout.vue'
 import ButtonDefault from '@/components/ButtonDefault.vue'
 import InputValue from '@/components/InputValue.vue'
 import Textarea from '@/components/Textarea.vue'
+import ToggleButton from '@/components/ToggleButton.vue'
 
 const name = ref('')
 const description = ref('')
 const price = ref('')
 const imageUrl = ref('')
+const active = ref(true)
+const newProduct = ref(true)
 const route = useRoute()
 const specialId = computed(() => (typeof route.params.id === 'string' ? route.params.id : null))
 const isEditing = computed(() => specialId.value !== null)
@@ -20,11 +23,12 @@ onMounted(async () => {
   if (!specialId.value) return
 
   const special = await getSpecial(specialId.value)
-  console.log(special)
   name.value = special.name
   description.value = special.description
   price.value = special.price.toFixed(2)
   imageUrl.value = special.imageUrl
+  active.value = special.active ?? true
+  newProduct.value = special.newProduct ?? false
 })
 
 function formatPrice() {
@@ -45,6 +49,8 @@ async function saveSpecial() {
     description: description.value,
     price: Number(price.value.replace(',', '.')),
     imageUrl: imageUrl.value,
+    active: active.value,
+    newProduct: newProduct.value,
   }
 
   if (specialId.value) {
@@ -75,6 +81,14 @@ async function saveSpecial() {
         @blur="formatPrice"
       />
       <InputValue v-model="imageUrl" placeholder="URL de la imatge" type="text" />
+      <div class="flex justify-between">
+        <span>Plat disponible?</span>
+        <ToggleButton v-model="active" />
+      </div>
+      <div class="flex justify-between">
+        <span>Producte nou?</span>
+        <ToggleButton v-model="newProduct" />
+      </div>
 
       <ButtonDefault>{{ isEditing ? 'Actualitzar' : 'Guardar' }}</ButtonDefault>
     </form>

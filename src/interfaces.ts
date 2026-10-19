@@ -15,4 +15,6 @@ export interface Special {
   description: string
   price: number
   imageUrl: string
+  active: boolean
+  newProduct: boolean
 }

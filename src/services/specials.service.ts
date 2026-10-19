@@ -6,7 +6,7 @@ export async function getSpecials(): Promise<Special[]> {
   const response = await fetch(`${API_URL}/specials`, {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
   })
 
@@ -18,6 +18,8 @@ export async function createSpecial(special: {
   description: string
   price: number
   imageUrl: string
+  active: boolean
+  newProduct: boolean
 }) {
   const token = localStorage.getItem('token')
 
@@ -52,6 +54,8 @@ export async function updateSpecial(
     description: string
     price: number
     imageUrl: string
+    active: boolean
+    newProduct: boolean
   },
 ) {
   const token = localStorage.getItem('token')

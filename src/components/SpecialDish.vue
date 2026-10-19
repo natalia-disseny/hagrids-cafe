@@ -30,13 +30,21 @@ async function confirmDelete() {
 </script>
 
 <template>
-  <div class="special flex flex-col gap-2 shadow-xl rounded-xl overflow-auto">
+  <div
+    class="special flex flex-col gap-2 shadow-xl rounded-xl overflow-auto"
+    :class="[!special.active ? 'special--hidden' : '']"
+  >
     <div class="relative">
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuHBJjfa-0ylKwyc70srUaxyjHUe_lqWVd4EAzx_mD6SYTEJ52PHccJ_jqvwY4HEn67WLnAURjgDA0kuvJrzM-MN4XI_iGQmUAI0iSwjZ5&s=10"
+        :class="[!special.active ? 'grayscale' : '']"
         :alt="special.name"
       />
-      <img src="/public/iconNew.svg" class="absolute top-0 right-0 w-20" />
+      <img
+        v-if="special.newProduct"
+        src="/public/iconNew.svg"
+        class="absolute top-0 right-0 w-20"
+      />
     </div>
 
     <div class="p-4">
@@ -48,7 +56,7 @@ async function confirmDelete() {
         <span class="bg-white inline pl-3 relative z-10">{{ special.price.toFixed(2) }} €</span>
       </div>
 
-      <div v-if="loggedIn" class="flex flex-col gap-2 mt-4">
+      <div v-if="loggedIn" class="flex flex-col gap-2 mt-4 relative z-30">
         <ButtonDefault :to="`/specials/${special._id}/edit`" variant="ghost">
           Editar
         </ButtonDefault>
@@ -60,16 +68,32 @@ async function confirmDelete() {
 </template>
 
 <style>
-.special__price {
+.special {
   position: relative;
 
-  &::after {
+  &.special--hidden::before {
     content: '';
     position: absolute;
+    background-color: #000;
     width: 100%;
-    border-top: dotted var(--color-hagrids-pink-100) 5px;
+    height: 100%;
+    top: 0;
     left: 0;
-    top: 50%;
+    opacity: 0.3;
+    z-index: 20;
+  }
+
+  .special__price {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      border-top: dotted var(--color-hagrids-pink-100) 5px;
+      left: 0;
+      top: 50%;
+    }
   }
 }
 </style>
