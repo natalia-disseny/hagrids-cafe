@@ -5,8 +5,8 @@ import AdminLayout from '@/templates/AdminLayout.vue'
 
 <template>
   <AdminLayout>
-    <div class="mt-10 flex flex-col gap-4">
-      <ButtonDefault :to="'/specials'">Especials</ButtonDefault>
+    <div class="flex flex-col gap-4">
+      <ButtonDefault to="/specials">🥞 Especials de la setmana</ButtonDefault>
     </div>
   </AdminLayout>
 </template>

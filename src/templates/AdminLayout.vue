@@ -15,8 +15,8 @@ const { error, password, loggedIn, handleLogin } = useAuth()
     <h2 class="mb-4">Admin</h2>
 
     <form @submit="handleLogin" class="flex flex-col gap-4">
-      <InputValue v-model="password" type="password" placeholder="Password" />
-      <ButtonDefault class="w-full" type="submit">Login</ButtonDefault>
+      <InputValue v-model="password" type="password" placeholder="Contrassenya" />
+      <ButtonDefault class="w-full" type="submit">Entrar</ButtonDefault>
     </form>
 
     <p v-if="error" class="mt-2 text-red-500">
