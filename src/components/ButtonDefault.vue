@@ -1,17 +1,22 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
-defineProps<{
+const props = defineProps<{
   to?: string
   variant?: 'default' | 'ghost' | 'error'
 }>()
+
+const isExternal = computed(() => /^https?:\/\//i.test(props.to ?? ''))
 </script>
 
 <template>
   <component
-    :is="to ? RouterLink : 'button'"
-    :to="to"
-    class="rounded-xl py-3 text-center font-semibold transition cursor-pointer"
+    :is="to ? (isExternal ? 'a' : RouterLink) : 'button'"
+    :to="isExternal ? undefined : to"
+    :href="isExternal ? to : undefined"
+    :rel="isExternal ? 'noopener noreferrer' : undefined"
+    class="rounded-xl py-5 text-center font-semibold transition cursor-pointer"
     :class="{
       'bg-hagrids-green-500 text-white hover:bg-hagrids-green-300':
         !variant || variant === 'default',
