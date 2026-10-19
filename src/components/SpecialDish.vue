@@ -36,7 +36,7 @@ async function confirmDelete() {
   >
     <div class="relative">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuHBJjfa-0ylKwyc70srUaxyjHUe_lqWVd4EAzx_mD6SYTEJ52PHccJ_jqvwY4HEn67WLnAURjgDA0kuvJrzM-MN4XI_iGQmUAI0iSwjZ5&s=10"
+        :src="special.imageUrl"
         :class="[!special.active ? 'grayscale' : '']"
         :alt="special.name"
       />
