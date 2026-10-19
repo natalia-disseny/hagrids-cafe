@@ -7,9 +7,17 @@
 }
 
 @theme {
-  --color-hagrids-green: #0f5a45;
-  --color-hagrids-green-light: #377664;
-  --color-hagrids-green-dark: #0d4b3a;
+  --color-hagrids-green-50: #d7e4e0;
+  --color-hagrids-green-100: #afc8c1;
+  --color-hagrids-green-200: #87ada2;
+  --color-hagrids-green-300: #5f9183;
+  --color-hagrids-green-400: #377664;
+  --color-hagrids-green-500: #0f5a45;
+  --color-hagrids-green-600: #0d4b3a;
+  --color-hagrids-green-700: #0a3c2e;
+  --color-hagrids-green-800: #082d23;
+  --color-hagrids-green-900: #051e17;
+  --color-hagrids-green-950: #030f0c;
 
   --color-hagrids-pink-50: #f8eaee;
   --color-hagrids-pink-100: #f1d5dd;
@@ -22,4 +30,9 @@
   --color-hagrids-pink-800: #6a404d;
   --color-hagrids-pink-900: #472b33;
   --color-hagrids-pink-950: #23151a;
+}
+
+h2 {
+  color: var(--color-hagrids-pink-800);
+  @apply text-xl font-semibold;
 }

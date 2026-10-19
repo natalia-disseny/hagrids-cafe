@@ -9,7 +9,7 @@ export async function getSpecials(): Promise<Special[]> {
 
 export async function createSpecial(special: {
   name: string
-  ingredients: string[]
+  description: string
   price: number
   imageUrl: string
 }) {

@@ -4,17 +4,31 @@ import { createSpecial } from '@/services/specials.service'
 import router from '@/router'
 import AdminLayout from '@/templates/AdminLayout.vue'
 import ButtonDefault from '@/components/ButtonDefault.vue'
+import InputValue from '@/components/InputValue.vue'
+import Textarea from '@/components/Textarea.vue'
 
 const name = ref('')
-const ingredients = ref('')
-const price = ref()
+const description = ref('')
+const price = ref('')
 const imageUrl = ref('')
+
+function formatPrice() {
+  const value = price.value.trim()
+  if (!value) return
+
+  const normalizedValue = value.replace(',', '.')
+  const amount = Number(normalizedValue)
+  if (!Number.isFinite(amount)) return
+
+  const decimalSeparator = value.includes(',') ? ',' : '.'
+  price.value = amount.toFixed(2).replace('.', decimalSeparator)
+}
 
 async function saveSpecial() {
   await createSpecial({
     name: name.value,
-    ingredients: ingredients.value.split(',').map((ingredient) => ingredient.trim()),
-    price: Number(price.value),
+    description: description.value,
+    price: Number(price.value.replace(',', '.')),
     imageUrl: imageUrl.value,
   })
 
@@ -27,23 +41,19 @@ async function saveSpecial() {
     <h2 class="mb-4 text-xl font-bold">Nou plat</h2>
 
     <form @submit.prevent="saveSpecial" class="flex flex-col gap-4">
-      <input v-model="name" placeholder="Nom" class="border rounded-lg p-3" />
-
-      <textarea
-        v-model="ingredients"
-        placeholder="Ingredients separats per comes"
-        class="border rounded-lg p-3"
-      />
-
-      <input
+      <InputValue v-model="name" placeholder="Nom" name="name" type="text" />
+      <Textarea v-model="description" placeholder="Descripció del plat" />
+      <InputValue
         v-model="price"
-        type="number"
-        step="0.01"
         placeholder="Preu"
-        class="border rounded-lg p-3"
+        name="price"
+        type="text"
+        inputmode="decimal"
+        pattern="[0-9]+([.,][0-9]{1,2})?"
+        required
+        @blur="formatPrice"
       />
-
-      <input v-model="imageUrl" placeholder="URL de la imatge" class="border rounded-lg p-3" />
+      <InputValue v-model="imageUrl" placeholder="URL de la imatge" type="text" />
 
       <ButtonDefault>Guardar</ButtonDefault>
     </form>

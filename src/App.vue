@@ -16,7 +16,7 @@ import { RouterView } from 'vue-router'
 
         <div class="text-center">
           <RouterLink to="/">
-            <h1 class="text-hagrids-green font-[BurningSun] text-5xl">Hagrid&nbsp;s Cafe</h1>
+            <h1 class="text-hagrids-green-500 font-[BurningSun] text-5xl">Hagrid&nbsp;s Cafe</h1>
           </RouterLink>
 
           <p class="text-center text-hagrids-pink-500">

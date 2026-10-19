@@ -10,7 +10,7 @@ defineProps<{
   <component
     :is="to ? RouterLink : 'button'"
     :to="to"
-    class="rounded-xl bg-hagrids-green text-white py-4 text-center font-semibold hover:bg-hagrids-green-lighter transition cursor-pointer"
+    class="rounded-xl bg-hagrids-green-500 text-white py-3 text-center font-semibold hover:bg-hagrids-green-300 transition cursor-pointer"
   >
     <slot />
   </component>

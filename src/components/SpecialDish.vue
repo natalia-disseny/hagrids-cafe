@@ -7,23 +7,38 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
-    <h3 class="font-bold text-lg text-hagrids-green">
-      {{ special.name }}
-    </h3>
+  <div class="special flex flex-col gap-2 shadow-xl rounded-xl overflow-auto">
+    <div class="relative">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuHBJjfa-0ylKwyc70srUaxyjHUe_lqWVd4EAzx_mD6SYTEJ52PHccJ_jqvwY4HEn67WLnAURjgDA0kuvJrzM-MN4XI_iGQmUAI0iSwjZ5&s=10"
+        :alt="special.name"
+      />
+      <img src="/public/iconNew.svg" class="absolute top-0 right-0 w-20" />
+    </div>
 
-    <div class="flex flex-row gap-x-2">
-      <img :src="special.imageUrl" :alt="special.name" class="rounded-xl h-30" />
-
-      <div class="flex flex-col gap-y-3">
-        <div class="bg-stone-100 px-2 py-1 rounded-lg w-fit flex gap-x-2">
-          <span>{{ special.price }}</span>
-        </div>
-
-        <div class="bg-stone-100 px-2 py-1 rounded-lg w-fit flex gap-x-2">
-          <span v-for="ingredient in special.ingredients" :key="ingredient">{{ ingredient }}</span>
-        </div>
+    <div class="p-4">
+      <h3 class="text-lg font-semibold text-hagrids-pink-600">
+        {{ special.name }}
+      </h3>
+      <p>{{ special.description }}</p>
+      <div class="special__price mt-2 text-right text-hagrids-pink-600 font-bold">
+        <span class="bg-white inline pl-3 relative z-10">{{ special.price.toFixed(2) }} €</span>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+.special__price {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: dotted var(--color-hagrids-pink-100) 5px;
+    left: 0;
+    top: 50%;
+  }
+}
+</style>

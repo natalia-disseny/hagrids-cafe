@@ -12,7 +12,7 @@ export interface Game {
 export interface Special {
   id: number
   name: string
-  ingredients: string[]
+  description: string
   price: number
   imageUrl: string
 }

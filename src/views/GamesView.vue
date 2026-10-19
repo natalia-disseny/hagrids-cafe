@@ -26,7 +26,7 @@ onMounted(() => {
         v-model="search"
         type="text"
         placeholder="Catan..."
-        class="bg-stone-100 appearance-none border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-light"
+        class="bg-stone-100 appearance-none border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-300"
       />
     </div>
 
@@ -38,7 +38,7 @@ onMounted(() => {
 
       <select
         v-model="playerCount"
-        class="bg-stone-100 border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-light"
+        class="bg-stone-100 border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-300"
       >
         <option :value="null">Qualsevol</option>
 
@@ -58,7 +58,7 @@ onMounted(() => {
 
       <select
         v-model="playTimeFilter"
-        class="bg-stone-100 border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-light"
+        class="bg-stone-100 border-2 border-stone-100 rounded-xl w-full py-2 px-4 text-stone-700 leading-tight focus:outline-none focus:bg-white focus:border-hagrids-green-300"
       >
         <option value="any">Qualsevol</option>
         <option value="short">Menys de 30 min</option>

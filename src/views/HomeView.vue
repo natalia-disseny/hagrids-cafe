@@ -6,7 +6,7 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
   <div class="mt-10 flex flex-col gap-4">
     <!-- <RouterLink
       to="/jocs-de-taula"
-      class="rounded-xl bg-hagrids-green text-white py-4 text-center font-semibold hover:bg-hagrids-green-lighter transition"
+      class="rounded-xl bg-hagrids-green-500 text-white py-4 text-center font-semibold hover:bg-hagrids-green-300 transition"
     >
       🎲 Jocs de taula
     </RouterLink> -->
@@ -15,7 +15,7 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
 
     <a
       href="https://www.instagram.com/hagridscafe/?hl=en"
-      class="rounded-xl border-2 border-hagrids-green text-hagrids-green py-4 text-center font-semibold"
+      class="rounded-xl border-2 border-hagrids-green-500 text-hagrids-green-500 py-4 text-center font-semibold"
     >
       Instagram</a
     >

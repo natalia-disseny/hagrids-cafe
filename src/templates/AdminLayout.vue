@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ButtonDefault from '@/components/ButtonDefault.vue'
 import { useAuth } from '@/composables/useAuth.use'
 
 const { error, password, loggedIn, handleLogin } = useAuth()
@@ -10,9 +11,9 @@ const { error, password, loggedIn, handleLogin } = useAuth()
   </template>
 
   <template v-else>
-    <h1 class="text-xl font-bold mb-4">Admin</h1>
+    <h2 class="mb-4">Admin</h2>
 
-    <form @submit="handleLogin">
+    <form @submit="handleLogin" class="flex flex-col gap-4">
       <input
         v-model="password"
         type="password"
@@ -20,9 +21,7 @@ const { error, password, loggedIn, handleLogin } = useAuth()
         class="w-full border rounded-lg p-3"
       />
 
-      <button type="submit" class="mt-4 w-full rounded-lg bg-indigo-600 text-white py-3">
-        Login
-      </button>
+      <ButtonDefault class="w-full" type="submit">Login</ButtonDefault>
     </form>
 
     <p v-if="error" class="mt-2 text-red-500">
