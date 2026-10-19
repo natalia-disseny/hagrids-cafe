@@ -66,3 +66,17 @@ export async function updateSpecial(
 
   return response.json()
 }
+
+export async function deleteSpecial(id: string): Promise<void> {
+  const token = localStorage.getItem('token')
+  const response = await fetch(`${API_URL}/specials/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error('Failed to delete special')
+  }
+}

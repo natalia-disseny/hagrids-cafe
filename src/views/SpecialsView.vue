@@ -9,6 +9,10 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
 const { loading, specials, loadSpecials } = useSpecials()
 const { loggedIn } = useAuth()
 
+function removeSpecial(id: string) {
+  specials.value = specials.value.filter((special) => special._id !== id)
+}
+
 onMounted(() => {
   loadSpecials()
 })
@@ -22,6 +26,11 @@ onMounted(() => {
   <Loader v-if="loading" />
 
   <div class="flex flex-col gap-y-8">
-    <SpecialDish v-for="special in specials" :key="special._id" :special="special" />
+    <SpecialDish
+      v-for="special in specials"
+      :key="special._id"
+      :special="special"
+      @deleted="removeSpecial"
+    />
   </div>
 </template>

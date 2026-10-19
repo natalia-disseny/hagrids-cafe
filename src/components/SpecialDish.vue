@@ -1,13 +1,32 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import type { Special } from '@/interfaces'
 import { useAuth } from '@/composables/useAuth.use'
+import { deleteSpecial } from '@/services/specials.service'
 import ButtonDefault from './ButtonDefault.vue'
 
 const { loggedIn } = useAuth()
 
-defineProps<{
+const props = defineProps<{
   special: Special
 }>()
+const emit = defineEmits<{
+  deleted: [id: string]
+}>()
+const deleteError = ref('')
+
+async function confirmDelete() {
+  if (!window.confirm(`Delete "${props.special.name}"? This cannot be undone.`)) return
+
+  deleteError.value = ''
+  try {
+    await deleteSpecial(props.special._id)
+    emit('deleted', props.special._id)
+  } catch (error) {
+    deleteError.value =
+      error instanceof Error ? error.message : 'Unable to delete special. Please try again.'
+  }
+}
 </script>
 
 <template>
@@ -33,7 +52,8 @@ defineProps<{
         <ButtonDefault :to="`/specials/${special._id}/edit`" variant="ghost">
           Editar
         </ButtonDefault>
-        <ButtonDefault>Eliminar</ButtonDefault>
+        <ButtonDefault variant="error" @click="confirmDelete">Eliminar</ButtonDefault>
+        <p v-if="deleteError" role="alert" class="text-red-700">{{ deleteError }}</p>
       </div>
     </div>
   </div>
