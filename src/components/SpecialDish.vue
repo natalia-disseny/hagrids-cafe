@@ -31,24 +31,25 @@ async function confirmDelete() {
 
 <template>
   <div
-    class="special flex flex-col gap-2 shadow-xl rounded-xl overflow-auto"
+    class="special flex flex-col gap-2 shadow-xl rounded-xl"
     :class="[!special.active ? 'special--hidden' : '']"
   >
     <div class="relative">
       <img
         :src="special.imageUrl"
+        class="rounded-tl-xl rounded-tr-xl"
         :class="[!special.active ? 'grayscale' : '']"
         :alt="special.name"
       />
       <img
         v-if="special.newProduct"
         src="/public/iconNew.svg"
-        class="absolute top-0 right-0 w-20"
+        class="absolute -top-8 right-0 w-20"
       />
     </div>
 
     <div class="p-4">
-      <h3 class="text-lg font-semibold text-hagrids-pink-600">
+      <h3 class="text-lg font-semibold text-hagrids-green-500">
         {{ special.name }}
       </h3>
       <p>{{ special.description }}</p>
