@@ -22,6 +22,6 @@ onMounted(() => {
   <Loader v-if="loading" />
 
   <div class="flex flex-col gap-y-8">
-    <SpecialDish v-for="special in specials" :key="special.name" :special="special" />
+    <SpecialDish v-for="special in specials" :key="special._id" :special="special" />
   </div>
 </template>

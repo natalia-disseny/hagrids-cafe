@@ -1,8 +1,8 @@
 <template>
-  <div role="status">
+  <div class="flex justify-center my-4" role="status">
     <svg
       aria-hidden="true"
-      class="w-8 h-8 animate-spin text-hagrids-pink-100 fill-hagrids-pink-500"
+      class="w-8 h-8 animate-spin text-center text-hagrids-pink-100 fill-hagrids-pink-500"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

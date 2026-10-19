@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import GamesView from '@/views/GamesView.vue'
 import AdminView from '@/views/AdminView.vue'
 import SpecialsView from '@/views/SpecialsView.vue'
-import SpecialsCreateView from '@/views/SpecialsCreateView.vue'
+import SpecialsEditView from '@/views/SpecialsEditView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -23,7 +23,11 @@ const router = createRouter({
     },
     {
       path: '/specials/create',
-      component: SpecialsCreateView,
+      component: SpecialsEditView,
+    },
+    {
+      path: '/specials/:id/edit',
+      component: SpecialsEditView,
     },
     {
       path: '/games',

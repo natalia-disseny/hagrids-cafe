@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import type { Special } from '@/interfaces'
+import { useAuth } from '@/composables/useAuth.use'
+import ButtonDefault from './ButtonDefault.vue'
+
+const { loggedIn } = useAuth()
 
 defineProps<{
   special: Special
@@ -23,6 +27,13 @@ defineProps<{
       <p>{{ special.description }}</p>
       <div class="special__price mt-2 text-right text-hagrids-pink-600 font-bold">
         <span class="bg-white inline pl-3 relative z-10">{{ special.price.toFixed(2) }} €</span>
+      </div>
+
+      <div v-if="loggedIn" class="flex flex-col gap-2 mt-4">
+        <ButtonDefault :to="`/specials/${special._id}/edit`" variant="ghost">
+          Editar
+        </ButtonDefault>
+        <ButtonDefault>Eliminar</ButtonDefault>
       </div>
     </div>
   </div>
