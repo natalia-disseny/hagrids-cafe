@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonDefault from '@/components/ButtonDefault.vue'
+import InputValue from '@/components/InputValue.vue'
 import { useAuth } from '@/composables/useAuth.use'
 
 const { error, password, loggedIn, handleLogin } = useAuth()
@@ -14,13 +15,7 @@ const { error, password, loggedIn, handleLogin } = useAuth()
     <h2 class="mb-4">Admin</h2>
 
     <form @submit="handleLogin" class="flex flex-col gap-4">
-      <input
-        v-model="password"
-        type="password"
-        placeholder="Password"
-        class="w-full border rounded-lg p-3"
-      />
-
+      <InputValue v-model="password" type="password" placeholder="Password" />
       <ButtonDefault class="w-full" type="submit">Login</ButtonDefault>
     </form>
 

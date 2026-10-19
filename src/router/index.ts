@@ -26,7 +26,7 @@ const router = createRouter({
       component: SpecialsCreateView,
     },
     {
-      path: '/jocs-de-taula',
+      path: '/games',
       component: GamesView,
     },
   ],

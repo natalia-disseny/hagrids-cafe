@@ -3,7 +3,7 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
 </script>
 
 <template>
-  <div class="mt-10 flex flex-col gap-4">
+  <div class="flex flex-col gap-4">
     <!-- <RouterLink
       to="/jocs-de-taula"
       class="rounded-xl bg-hagrids-green-500 text-white py-4 text-center font-semibold hover:bg-hagrids-green-300 transition"
@@ -15,7 +15,7 @@ import ButtonDefault from '@/components/ButtonDefault.vue'
 
     <a
       href="https://www.instagram.com/hagridscafe/?hl=en"
-      class="rounded-xl border-2 border-hagrids-green-500 text-hagrids-green-500 py-4 text-center font-semibold"
+      class="rounded-xl border-2 border-hagrids-green-500 text-hagrids-green-500 py-3 text-center font-semibold"
     >
       Instagram</a
     >

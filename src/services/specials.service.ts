@@ -2,7 +2,13 @@ import { API_URL } from '@/config'
 import type { Special } from '@/interfaces'
 
 export async function getSpecials(): Promise<Special[]> {
-  const response = await fetch(`${API_URL}/specials`)
+  const token = localStorage.getItem('token')
+  const response = await fetch(`${API_URL}/specials`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
 
   return response.json()
 }
